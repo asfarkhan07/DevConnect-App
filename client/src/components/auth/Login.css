@@ -1,0 +1,12 @@
+.signinpage{
+    height: 91vh;;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.signinsign h1{
+    color: #27b8cf;
+}

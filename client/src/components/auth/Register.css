@@ -1,0 +1,39 @@
+.signupsign{
+    color: #27b8cf;
+}
+
+.signuppage{
+        width: 70%;
+    /* margin: 5% 20%; */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    height: 91vh;
+    margin: auto;
+}
+
+.form{
+display: flex;
+flex-direction: column;
+    padding-top: 20px;
+
+}
+
+.form input{
+    margin: 10px 0px;
+}
+
+.form button{
+    width: 100px;
+    margin: auto;
+    background-color: rgb(156, 198, 235);
+    border-radius: 10px;
+}
+
+.form button:hover{
+    transform: scale(1.2);
+}
+
+.form p{
+    margin: auto;
+}

@@ -8,16 +8,30 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.3.1",
     "bcryptjs": "^3.0.3",
+    "bootstrap": "^5.3.8",
     "config": "^4.4.1",
+    "dns": "^0.1.2",
     "express": "^5.2.1",
     "express-validator": "^7.3.2",
     "gravatar": "^1.8.2",
     "jsonwebtoken": "^9.0.3",
+    "mongodb": "3.7",
     "mongoose": "^9.6.3",
+    "node": "^26.3.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-moment": "^2.0.2",
+    "react-router-dom": "^6.30.4",
     "request": "^2.88.2"
   },
   "devDependencies": {

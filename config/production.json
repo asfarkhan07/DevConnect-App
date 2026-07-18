@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://asfarnfs2010:asfarnfs2010@devconnect.u99u8be.mongodb.net/?appName=DevConnect",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId":"Ov23liVd61kKuV0YPcLm",
+    "githubClientSecret":"d051866bc24018febe2606c45b03ee1d3b85315d"
+}
