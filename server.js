@@ -20,13 +20,14 @@ app.use('/api/posts',require('./routes/api/posts.js'));
 app.use('/api/auth',require('./routes/api/auth.js'));
 
 //Serve static assets in production
-if(process.env.NODE_ENV==='production'){
-    //Set static folder
-    app.use(express.static('client/build'));
+if (process.env.NODE_ENV === 'production') {
+  console.log('Production mode: using :any(*) catch-all route');
 
-    app.get('/:any(*)', (req, res) => {
+  app.use(express.static('client/build'));
+
+  app.get('/:any(*)', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
+  });
 }
 
 console.log('Routes Mounted')
