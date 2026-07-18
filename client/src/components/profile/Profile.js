@@ -8,15 +8,15 @@ import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
-import ProfileGitHub from './ProfileGitHub';
-import './Profile.css';
+import ProfileGitHub from "./ProfileGitHub";
+import "./Profile.css";
 
 const Profile = ({ getProfilebyId, profile: { profile, loading }, auth }) => {
   const { id } = useParams(); //Get the ID from the URL
 
   useEffect(() => {
     getProfilebyId(id);
-  }, [getProfilebyId,id]);
+  }, [getProfilebyId, id]);
 
   return (
     <Fragment>
@@ -24,7 +24,11 @@ const Profile = ({ getProfilebyId, profile: { profile, loading }, auth }) => {
         <Spinner />
       ) : (
         <Fragment>
-          <Link to="/profiles" className="btn btn-dark" style={{'margin':'20px'}}>
+          <Link
+            to="/profiles"
+            className="btn btn-dark"
+            style={{ margin: "20px" }}
+          >
             Back to Profile{" "}
           </Link>
           {auth.isAuthenticated &&
@@ -34,33 +38,41 @@ const Profile = ({ getProfilebyId, profile: { profile, loading }, auth }) => {
                 Edit profile
               </Link>
             )}
-            <div className="profile-grid my-1">
-                <ProfileTop profile={profile}/>
-                <ProfileAbout profile={profile}/>
-                <div className="profile-exp bg-white p-2">
-                    <h2 className="text-primary">Experience</h2>
-                    {profile.experience.length>0 ? (
-                        <Fragment>
-                            {profile.experience.map((experience)=>(
-                                <ProfileExperience key={experience._id} experience={experience}/>
-                            ))}
-
-                        </Fragment>) : (<h4>No Experience Credentials</h4>)}
-                </div>
-                <div className="profile-exp bg-white p-2">
-                    <h2 className="text-primary">Education</h2>
-                    {profile.education.length>0 ? (
-                        <Fragment>
-                            {profile.education.map((education)=>(
-                                <ProfileEducation key={education._id} education={education}/>
-                            ))}
-
-                        </Fragment>) : (<h4>No Education Credentials</h4>)}
-                </div>
-                {profile.githubusername && (
-                    <ProfileGitHub username={profile.githubusername}/>
-                )}
+          <div className="profile-grid my-1">
+            <ProfileTop profile={profile} />
+            <ProfileAbout profile={profile} />
+            <div className="profile-exp bg-white p-2">
+              <h2 className="text-primary">Experience</h2>
+              {profile.experience && profile.experience.length > 0 ? (
+                profile.experience.map((experience) => (
+                  <ProfileExperience
+                    key={experience._id}
+                    experience={experience}
+                  />
+                ))
+              ) : (
+                <h4>No Experience Credentials</h4>
+              )}
             </div>
+            <div className="profile-exp bg-white p-2">
+              <h2 className="text-primary">Education</h2>
+              {profile.education.length > 0 ? (
+                <Fragment>
+                  {profile.education.map((education) => (
+                    <ProfileEducation
+                      key={education._id}
+                      education={education}
+                    />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>No Education Credentials</h4>
+              )}
+            </div>
+            {profile.githubusername && (
+              <ProfileGitHub username={profile.githubusername} />
+            )}
+          </div>
         </Fragment>
       )}
     </Fragment>

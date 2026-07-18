@@ -3,8 +3,15 @@ import '../../App.css';
 import { Link, Navigate } from 'react-router-dom';
 import {connect}  from 'react-redux';
 import PropTypes from 'prop-types';
+import Spinner from '../layout/Spinner'
 
-function Landing({ isAuthenticated}) {
+function Landing({ isAuthenticated,loading}) {
+  if (loading) {
+    return <Spinner/>; // or a spinner component while auth state is loading
+  }
+
+
+
   if(isAuthenticated) {
     return <Navigate to='/dashboard' />
   }
@@ -24,11 +31,13 @@ function Landing({ isAuthenticated}) {
 }
 
 Landing.propTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
+  loading: PropTypes.bool.isRequired,
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  loading: state.auth.loading,
 })
 
 export default connect(mapStateToProps)(Landing)

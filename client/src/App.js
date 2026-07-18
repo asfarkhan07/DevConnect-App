@@ -7,7 +7,7 @@ import Register from "./components/auth/Register";
 import "./App.css";
 import Alert from "./components/layout/Alert";
 //Redux
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from 'react-redux';
 import store from "./store";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
@@ -26,15 +26,16 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-const App = () => {
+
+const AppContent = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    store.dispatch(loadUser());
-  }, []);
+    dispatch(loadUser());
+  }, [dispatch]);
 
   return (
-    <Provider store={store}>
-      <Router>
-        <Fragment>
+    <Fragment>
           <Navbar />
           <section className="cont">
             <Alert />
@@ -103,6 +104,15 @@ const App = () => {
             </Routes>
           </section>
         </Fragment>
+  )
+}
+
+const App = () => {
+  
+  return (
+    <Provider store={store}>
+      <Router>
+        <AppContent/>
       </Router>
     </Provider>
   );

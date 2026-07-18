@@ -30,7 +30,14 @@ const ProfileExperience = ({
 };
 
 ProfileExperience.propTypes = {
-  experience: PropTypes.array.isRequired,
+  experience: PropTypes.shape({
+    company: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    to: PropTypes.string,
+    from: PropTypes.string.isRequired,
+    location: PropTypes.string,
+    current: PropTypes.bool,
+  }).isRequired,
 };
-
 export default ProfileExperience;
