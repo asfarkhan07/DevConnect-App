@@ -6,72 +6,75 @@ import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  //------------------------------------
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   const authLinks = (
-    <div
-      style={{
-        textAlign: "right",
-        display: "flex",
-        justifyContent: "right",
-        width: "77%",
-        position: "relative",
-        bottom: "50px",
-        left: "22%",
-      }}
-    >
-      <ul>
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/profiles">
-            Developers
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/posts">
-            Posts
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/dashboard">
-            Dashboard
-          </Link>
-        </li>
-        <li className="nav-item">
-          <a onClick={logout} className="logout btn" href="#!" style={{position:'relative',bottom:'6px',color:'white'}}>
-            {" "}
-            Logout
-          </a>
-        </li>
-      </ul>
+    <div className="nav-1">
+      <ul className={menuOpen ? "active" : ""}>
+          <li className="nav-item">
+            <Link
+              className="nav-link active"
+              aria-current="page"
+              to="/profiles"
+            >
+              Developers
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link active" aria-current="page" to="/posts">
+              Posts
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              className="nav-link active"
+              aria-current="page"
+              to="/dashboard"
+            >
+              Dashboard
+            </Link>
+          </li>
+          <li className="nav-item">
+            <a
+              onClick={logout}
+              className="logout btn"
+              href="#!"
+              style={{ position: "relative", bottom: "6px", color: "white" }}
+            >
+              {" "}
+              Logout
+            </a>
+          </li>
+        </ul>
     </div>
   );
 
   const guestLinks = (
-    <div
-      style={{
-        "text-align": "right",
-        display: "flex",
-        "justify-content": "right",
-        position: "relative",
-        width: "100%",
-        bottom: "39px",
-      }}
-    >
-      <ul>
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/profiles">
-            Developers
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/register">
-            Register
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/login">
-            Login
-          </Link>
-        </li>
-      </ul>
+    <div className="nav-1">
+      <ul className={menuOpen ? "active" : ""}>
+          <li className="nav-item">
+            <Link
+              className="nav-link active"
+              aria-current="page"
+              to="/profiles"
+            >
+              Developers
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/register">
+              Register
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/login">
+              Login
+            </Link>
+          </li>
+        </ul>
     </div>
   );
 
@@ -83,6 +86,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
             {"</>"}DevConnector
           </Link>
         </h2>
+         <button
+          className="hamburger"
+          type="button"
+          onClick={toggleMenu}
+          aria-label="Toggle navigation"
+        >
+          &#9776;
+        </button>
       </div>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>

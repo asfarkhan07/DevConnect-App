@@ -1,68 +1,68 @@
 #root {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.nav-1 ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-1 ul li {
+  margin: 10px 20px;
 }
 
 
 
-.navbar{
+.navbar {
   background-color: rgb(176, 161, 211);
   height: 62px;
   border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
 }
-.navbar h2{
+.navbar h2 {
   color: #3b3434;
   margin-left: 3%;
 }
 
-.navbar ul{
-  display: flex;
-  margin-top: 0;
-  margin-bottom: 0rem;
-}
-
-.navbar ul li{
-  list-style-type: none;
-  margin: 7px 15px;
-  color: #f0ecec;
-  padding: 0px 5px;
-}
-.navbar ul li:hover{
+.nav-1 ul li:hover {
   transform: translateY(4px); /* Slight upward lift */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Softer, elevated shadow */
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Softer, elevated shadow */
 }
 
-.first-div-navbar{
-  width: 100%;
-  display: flex;
+.first-div-navbar {
+  width: 60%;
+
 }
 
 /* Landing page */
-.landing{
+.landing {
   position: relative;
-  background-image: url('./img/bgimg.jpg');
+  background-image: url("./img/bgimg.jpg");
   height: 91vh;
   background-size: cover;
-  background-position: center; 
+  background-position: center;
   background-repeat: no-repeat;
 }
 
 .buttons a {
-margin: 5px 5px;
-padding: 5px 5px;
-font-size: 20px;
+  margin: 5px 5px;
+  padding: 5px 5px;
+  font-size: 20px;
 }
 
-
-.x-large{
+.x-large {
   font-size: 60px;
   font-family: cursive;
-
 }
 
-.darkoverlay{
+.darkoverlay {
   text-align: center;
-    position: relative;
-    top: 40%;
+  position: relative;
+  top: 40%;
 }
 
 .alert {
@@ -82,4 +82,39 @@ font-size: 20px;
   color: #b72220;
   background-color: #f2dede;
   border-color: #ebccd1;
+}
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-1 ul {
+    display: none;
+    /* flex-direction: column; */
+    width: 100%;
+    /* overflow: visible; */
+    position: absolute;
+    z-index: 1;
+  }
+  .nav-1 ul.active {
+    display: flex;
+    flex-direction: column;
+    border:2px solid red;
+    width: 150px;
+    color: rgb(255, 255, 253);
+    background-color: rgb(199, 166, 209);
+  }
+  .hamburger {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0% 20%;
+  }
+  .first-div-navbar{
+    display: flex;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
 }
