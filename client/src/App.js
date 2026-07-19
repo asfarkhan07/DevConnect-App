@@ -21,6 +21,7 @@ import EditProfile from "./components/profile-forms/EditProfile";
 import AddExperience from "./components/profile-forms/AddExperience";
 import AddEducation from "./components/profile-forms/AddEducation";
 import Post from "./components/post/Post";
+import NotFound from "./components/layout/NotFound";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -101,6 +102,7 @@ const AppContent = () => {
                   </PrivateRoute>
                 }
               />
+              <Route path="*" element={<NotFound/>}/>
             </Routes>
           </section>
         </Fragment>
