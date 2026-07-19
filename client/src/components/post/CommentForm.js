@@ -8,6 +8,7 @@ const CommentForm = ({id,addComment}) => {
     const [text,setText]=useState('');
 
 
+
   return (
     <div className="post-form">
         <div className="p">

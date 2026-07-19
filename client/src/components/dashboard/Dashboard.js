@@ -26,7 +26,7 @@ const Dashboard = ({
     <Fragment>
       <div className="dashboard">
 
-      <h1 style={{ "font-family": "cursive", color: "#278bcd" }}>Dashboard</h1>
+      <h1 style={{ "fontFamily": "cursive", color: "#278bcd" }}>Dashboard</h1>
       <p>
         <i></i>Welcome, {auth.user && auth.user.name}
       </p>

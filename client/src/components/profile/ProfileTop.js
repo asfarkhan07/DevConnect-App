@@ -10,7 +10,7 @@ const ProfileTop = ({profile:{
     user:{name,avatar}
 }}) => {
   return (
-    <div class="profile-top bg-light p-2">
+    <div className="profile-top bg-light p-2">
           <img
             className="round-img my-1"
             src={avatar}
@@ -20,7 +20,7 @@ const ProfileTop = ({profile:{
           <h2 className="large">{name}</h2>
           <p className="lead">{status} {company && <span>at {company}</span>}</p>
           <p>{location && <span>{location}</span>}</p>
-          <div class="icons my-1">
+          <div className="icons my-1">
             {website && (
                 <a href={website} target="_blank" rel="noopener noreferrer">
               <i className="fas fa-globe fa-2x"></i>

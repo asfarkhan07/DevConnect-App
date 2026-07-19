@@ -11,6 +11,7 @@ const PostItem = ({
   auth,
   post: { _id, text, name, avatar, user, likes, comments, date },
   showActions,
+  deletePost
 }) => {
   function getCurrentDateFormatted() {
     const date = new Date();
@@ -32,7 +33,7 @@ const PostItem = ({
   return (
     <div className="post p-1 my-1">
       <div>
-        <Link to={`/profile/{user}`} style={{textDecoration:'none'}}>
+        <Link to={`/profile/${user}`} style={{textDecoration:'none'}}>
           <img
             className="round-img"
             src={avatar}
